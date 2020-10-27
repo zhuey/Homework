@@ -66,7 +66,9 @@ and of `delta Phi_eq`:
 
 ![](figures/deltaPhi_eq.png)
 
-and substitute these into your equation.  Note that you can either start with the mass-action kinetics and try to derive Butler-Volmer, or the other way around.  Or set `i_Far` equal to `i_BV` and see where that leads you...
+and substitute these into your equation.  Your answer to 1.1 might come in useful, as well.
+
+Note that you can either start with the mass-action kinetics and try to derive Butler-Volmer, or the other way around.  Or set `i_Far` equal to `i_BV` and see where that leads you...
 
 ### 1.3 Semester-long project Identification
 See the semester-long project description.  Identify and describe the system that you will model.  What is the device?  What are the components made of?  What type of process will you be modeling (a particular experiment, a mode of operation/application)?  And finally, what is the question you will attempt to answer (e.g. "I want to understand the effect of microstructure on XXX" or "I want to identify the optimum pressure for running YYY'').  As described in the project assignment, provide at least one reference from the literature to demonstrate why the application is important, or preferably why the parameter you choose is important. 
