@@ -6,77 +6,22 @@ Homework 5 is due by 11:59 pm on Tuesday, 24 November, 2020.  It has two compone
 
 2. Project: Derive and implement conservation of charge to model charge transfer for at least one electrode/electrolyte interface in your system (if you want to do both, that is certainly fine with me :) )
 
-## 1. Written Assignment
-You will submit a written report (as a typed pdf uploaded to Canvas) to answer the following questions/derivations:
+## 1. Transport Modeling
+Your task here is to write a sofware functions that calculate the mass and/or molar flux between two nodes for the following conditions:
+- Ideal gas flowing through a porous cathode.
+- Ions flowing in an incompressible liquid electrolyte flowing through a porous polymer separator.
+- Ions moving in a triple conducting oxide through a composite anode.
 
-### 1.1 Relating thermodynamics and Kinetics
-In class, we discussed that there are two approaches the determining the equilibrium state for a chemical reaction - chemical kinetic equilibrim and thermodynamic equilibrium.  The kinetic equilibrium is found by setting the rate of progress equal to zero, while the thermodynamic condition is found by setting the Gibbs energy of reaction to zero. 
+In all cases, you will be provided the necessary transport parameters (diffusion coefficients, mobilities, or somesuch), as well as microstructuure and geometry parameters.  You will then write a function to calculate flux as a function of species concentrations/mole fractions, electric potential, and distance beteen the two nodes.
 
-Obviously, the two approaches must produce the same result, and are linked to one another by the fact that both equations involve the product of species activities, raised to their stoichiometric coefficients.
+Subsequent code cells in the notebook will then call your functions for a range of conditions, comparing your output to validation data to judge for accuracy.
 
-Derive an expression that relates the ratio of the forward and reverse kinetic rate constants: `(k_fwd/k_rev)` to the standard-state Gibbs energy of reaction `dG^o_rxn`.  As a starting point, use the following two equations:
-
-![](figures/deltaG_reaction.png)
-
-![](figures/reaction_rop.png)
-
-where the activity can be written as
-
-![](figures/activity.png)
-
-and the activity concentration as
-
-![](figures/activity_conc.png)
-
-_Pay close attention to your units!_  Your answer should look something like:
-
-![](figures/equilibrium.png)
-
-where the product is over all `m` phases participating in the reaction, and `k,m` are all the species `k` in the phase `m`.
-
-### 1.2 Relating mass action kinetics and the Bulter-Volmer Form
-In class, we have noted that one can model charge-transer kinetics using elementary mass-action kinetics:
-
-![](figures/i_elementary.png)
-
-where the forward rate constant is
-
-![](figures/k_fwd_elementary.png)
-
-and the reverse rate constant is 
-
-![](figures/k_rev_elementary.png)
-
-where `k^*` refers to the thermally-activated rate coefficient (i.e. without considering electric potential effects, such as from Arrhenius rate coefficients).
-
-Alternatively, one could use Butler-Volmer kinetics to model a charge-transer reaction:
-
-![](figures/i_BV.png)
-
-Please demonstrate that these two forms are equivalent, by deriving an equation for the exchange current density `i_o`:
-
-![](figures/i_o.png)
-
-The first step is to use the definition of `eta`:
-
-![](figures/eta.png)
-
-and of `delta Phi_eq`:
-
-![](figures/deltaPhi_eq.png)
-
-and substitute these into your equation.  Your answer to 1.1 might come in useful, as well.
-
-Note that you can either start with the mass-action kinetics and try to derive Butler-Volmer, or the other way around.  Or set `i_Far` equal to `i_BV` and see where that leads you...
-
-### 1.3 Semester-long project Identification
-See the semester-long project description.  Identify and describe the system that you will model.  What is the device?  What are the components made of?  What type of process will you be modeling (a particular experiment, a mode of operation/application)?  And finally, what is the question you will attempt to answer (e.g. "I want to understand the effect of microstructure on XXX" or "I want to identify the optimum pressure for running YYY'').  As described in the project assignment, provide at least one reference from the literature to demonstrate why the application is important, or preferably why the parameter you choose is important. 
-
-Lastly, if you are working with a partner, please list their name.
 
 ## 2. Project Progress: Conservation of Charge and Charge Transfer
 
 At a minimum, you must submit a pull request to your project repo that includes (i) a Jupyter notebook showing the derivation of your conservation of charge equation(s), and a model file (edit and rename the `_model.py` template) that implements this into a model code that I can run.
+
+You (or your partner, if applicable), should fork a copy of the repo I have created for your project.  It probably makes sense to just fork this to one teammate's repo, and then have both team members push to this repo.  Or, create a GitHub team for your project, and fork a copy to this repo.
 
 Details:
 - Describe the model domain and state variables, then derive the conservation equations in a Jupyter notebook.  Implement the conservation equations to calculate a steady-state voltage difference, for a fixed external current (i_ext), and assuming that all species concentrations and all other state variables remain fixed.  
